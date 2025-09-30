@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![BiblioTech Logo](https://img.shields.io/badge/BiblioTech-Córdoba-gold?style=for-the-badge&logo=crown&logoColor=white)
+![BiblioTech Logo](https://img.shields.io/bechstyadge&logo=crown&logoColor=white)
 
 ## 🔥 ¡OFERTA LIMITADA! 🔥
 **🎯 Acceso VIP GRATUITO para los primeros 100,000 usuarios**  
