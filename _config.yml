@@ -1,0 +1,74 @@
+# GitHub Pages Configuration
+# BiblioTech Córdoba - Sistema de Gestión Bibliotecaria
+
+# Tema de GitHub Pages
+theme: jekyll-theme-cayman
+
+# Información del sitio
+title: "BiblioTech Córdoba"
+description: "Sistema de Gestión Bibliotecaria con Aplicación de Lógica Proposicional - ABP Matemática y Lógica 2025"
+
+# Configuración del autor
+author:
+  name: "EmiTeck"
+  email: "tu-email@ejemplo.com"
+  github: "EmiTeck"
+
+# URL del sitio (será automática con GitHub Pages)
+baseurl: "/bibliotech-cordoba"
+url: "https://EmiTeck.github.io"
+
+# Configuración de Jekyll
+markdown: kramdown
+highlighter: rouge
+encoding: utf-8
+
+# Plugins habilitados para GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Configuración SEO
+lang: es
+locale: es_AR
+
+# Google Analytics (opcional - reemplaza con tu ID)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Configuración de navegación
+navigation:
+  - title: "Dashboard"
+    url: "#dashboard"
+  - title: "Usuarios"
+    url: "#usuarios"  
+  - title: "Préstamos"
+    url: "#prestamos"
+  - title: "Lógica"
+    url: "#logica"
+
+# Metadatos del proyecto
+project:
+  name: "BiblioTech Córdoba"
+  version: "1.0.0"
+  release_date: "2025-09-29"
+  academic_year: "2025"
+  course: "ABP Matemática y Lógica"
+  institution: "Tu Institución"
+
+# Configuración de GitHub Pages
+github:
+  repository_url: "https://github.com/EmiTeck/bibliotech-cordoba"
+  repository_name: "bibliotech-cordoba"
+  owner_name: "EmiTeck"
+  
+# Exclusiones (archivos que no se procesan)
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
