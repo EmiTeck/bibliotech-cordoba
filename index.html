@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+                 <small>Desarrollado por: <strong>EmiTech</strong> | Actualizado con datos reales: 30/09/2025</small>  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiblioTech Córdoba - Demostración del Proyecto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,7 +76,7 @@
                         <div class="col-md-3">
                             <div class="card text-center border-primary stats-card">
                                 <div class="card-body">
-                                    <h3 class="text-primary">5</h3>
+                                    <h3 class="text-primary">8</h3>
                                     <p class="mb-0">Total Usuarios</p>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                         <div class="col-md-3">
                             <div class="card text-center border-success stats-card">
                                 <div class="card-body">
-                                    <h3 class="text-success">3</h3>
+                                    <h3 class="text-success">5</h3>
                                     <p class="mb-0">Usuarios Habilitados</p>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                         <div class="col-md-3">
                             <div class="card text-center border-danger stats-card">
                                 <div class="card-body">
-                                    <h3 class="text-danger">2</h3>
+                                    <h3 class="text-danger">3</h3>
                                     <p class="mb-0">Usuarios Restringidos</p>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                         <div class="col-md-3">
                             <div class="card text-center border-warning stats-card">
                                 <div class="card-body">
-                                    <h3 class="text-warning">0</h3>
+                                    <h3 class="text-warning">3</h3>
                                     <p class="mb-0">Libros Vencidos</p>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
     
                     <div class="card border-danger mb-4">
                         <div class="card-header bg-danger text-white">
-                            <h4>⚠️ 2 Usuario(s) NO pueden realizar préstamos</h4>
+                            <h4>❌ 3 Usuario(s) RESTRINGIDOS para préstamos</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -141,21 +141,32 @@
                                     <tbody>
         
                                         <tr class="user-restricted">
-                                            <td><strong>Juan Pérez</strong></td>
-                                            <td>juan@email.com</td>
+                                            <td><strong>Ana García López</strong></td>
+                                            <td>ana.garcia@email.com</td>
                                             <td>
-                                                <span class="badge bg-danger badge-restriction">💰 Multas pendientes ($800.00)</span>
+                                                <span class="badge bg-danger badge-restriction">💰 Multas pendientes ($75.00)</span>
+                                                <span class="badge bg-warning ms-1">📚 Libro vencido (62 días)</span>
                                             </td>
-                                            <td><code>P1=True, P2=False → ¬(True∨False)=False</code></td>
+                                            <td><code>P1=True, P2=True → ¬(True∨True)=False</code></td>
                                         </tr>
             
                                         <tr class="user-restricted">
-                                            <td><strong>Carlos López</strong></td>
-                                            <td>carlos@email.com</td>
+                                            <td><strong>Sofía Isabel Morales</strong></td>
+                                            <td>sofia.morales@email.com</td>
                                             <td>
-                                                <span class="badge bg-danger badge-restriction">💰 Multas pendientes ($150.00)</span>
+                                                <span class="badge bg-warning badge-restriction">📚 Libro vencido (46 días)</span>
                                             </td>
-                                            <td><code>P1=True, P2=False → ¬(True∨False)=False</code></td>
+                                            <td><code>P1=False, P2=True → ¬(False∨True)=False</code></td>
+                                        </tr>
+            
+                                        <tr class="user-restricted">
+                                            <td><strong>Diego Alejandro Ruiz</strong></td>
+                                            <td>diego.ruiz@email.com</td>
+                                            <td>
+                                                <span class="badge bg-danger badge-restriction">💰 Multas pendientes ($200.00)</span>
+                                                <span class="badge bg-warning ms-1">📚 Libro vencido (37 días)</span>
+                                            </td>
+                                            <td><code>P1=True, P2=True → ¬(True∨True)=False</code></td>
                                         </tr>
             
                                     </tbody>
@@ -166,7 +177,7 @@
         
                     <div class="card border-success">
                         <div class="card-header bg-success text-white">
-                            <h4>✅ 3 Usuario(s) HABILITADOS para préstamos</h4>
+                            <h4>✅ 5 Usuario(s) HABILITADOS para préstamos</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -182,23 +193,37 @@
                                     <tbody>
     
                                         <tr class="user-enabled">
-                                            <td><strong>María González</strong></td>
-                                            <td>maria@email.com</td>
+                                            <td><strong>Carlos Mendoza Silva</strong></td>
+                                            <td>carlos.mendoza@email.com</td>
+                                            <td><span class="badge bg-primary">0</span></td>
+                                            <td><code>P1=F, P2=F → ¬(F∨F)=True</code></td>
+                                        </tr>
+        
+                                        <tr class="user-enabled">
+                                            <td><strong>María Elena Rodríguez</strong></td>
+                                            <td>maria.rodriguez@email.com</td>
+                                            <td><span class="badge bg-primary">0</span></td>
+                                            <td><code>P1=F, P2=F → ¬(F∨F)=True</code></td>
+                                        </tr>
+        
+                                        <tr class="user-enabled">
+                                            <td><strong>José Luis Fernández</strong></td>
+                                            <td>jose.fernandez@email.com</td>
                                             <td><span class="badge bg-primary">1</span></td>
                                             <td><code>P1=F, P2=F → ¬(F∨F)=True</code></td>
                                         </tr>
         
                                         <tr class="user-enabled">
-                                            <td><strong>Ana Rodríguez</strong></td>
-                                            <td>ana@email.com</td>
+                                            <td><strong>Laura Patricia Gómez</strong></td>
+                                            <td>laura.gomez@email.com</td>
                                             <td><span class="badge bg-primary">1</span></td>
                                             <td><code>P1=F, P2=F → ¬(F∨F)=True</code></td>
                                         </tr>
         
                                         <tr class="user-enabled">
-                                            <td><strong>Laura Martínez</strong></td>
-                                            <td>laura@email.com</td>
-                                            <td><span class="badge bg-primary">2</span></td>
+                                            <td><strong>Roberto Carlos Díaz</strong></td>
+                                            <td>roberto.diaz@email.com</td>
+                                            <td><span class="badge bg-primary">1</span></td>
                                             <td><code>P1=F, P2=F → ¬(F∨F)=True</code></td>
                                         </tr>
         
@@ -215,7 +240,7 @@
                     
                     <div class="card">
                         <div class="card-header bg-primary text-white">
-                            <h4>📚 Préstamos No Devueltos (4 activos)</h4>
+                            <h4>📚 Préstamos No Devueltos (6 total: 3 activos, 3 vencidos)</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -231,36 +256,54 @@
                                     </thead>
                                     <tbody>
     
+                                        <!-- PRÉSTAMOS ACTIVOS (En tiempo) -->
                                         <tr>
-                                            <td><strong>María González</strong> <span class="badge bg-success">HABILITADA</span></td>
-                                            <td>Cien años de soledad</td>
-                                            <td>24/09/2025</td>
+                                            <td><strong>José Luis Fernández</strong> <span class="badge bg-success">HABILITADO</span></td>
+                                            <td>1984</td>
+                                            <td>15/09/2025</td>
+                                            <td>29/09/2025</td>
+                                            <td><span class="text-success"><strong>✅ Vigente (hoy vence)</strong></span></td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td><strong>Laura Patricia Gómez</strong> <span class="badge bg-success">HABILITADA</span></td>
+                                            <td>Matemáticas Discretas</td>
+                                            <td>20/09/2025</td>
+                                            <td>04/10/2025</td>
+                                            <td><span class="text-success"><strong>✅ Vigente (4 días)</strong></span></td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td><strong>Roberto Carlos Díaz</strong> <span class="badge bg-success">HABILITADO</span></td>
+                                            <td>Historia Argentina Contemporánea</td>
+                                            <td>25/09/2025</td>
                                             <td>09/10/2025</td>
                                             <td><span class="text-success"><strong>✅ Vigente (9 días)</strong></span></td>
                                         </tr>
         
-                                        <tr>
-                                            <td><strong>Ana Rodríguez</strong> <span class="badge bg-success">HABILITADA</span></td>
-                                            <td>El Principito</td>
-                                            <td>26/09/2025</td>
-                                            <td>11/10/2025</td>
-                                            <td><span class="text-success"><strong>✅ Vigente (11 días)</strong></span></td>
+                                        <!-- PRÉSTAMOS VENCIDOS (Problemáticos) -->
+                                        <tr class="overdue-book">
+                                            <td><strong>Sofía Isabel Morales</strong> <span class="badge bg-danger">RESTRINGIDA</span></td>
+                                            <td>Física Universitaria</td>
+                                            <td>01/08/2025</td>
+                                            <td>15/08/2025</td>
+                                            <td><span class="text-danger"><strong>❌ VENCIDO (46 días)</strong> - Multa: $560.00</span></td>
                                         </tr>
         
-                                        <tr>
-                                            <td><strong>Laura Martínez</strong> <span class="badge bg-success">HABILITADA</span></td>
-                                            <td>Martín Fierro</td>
-                                            <td>29/09/2025</td>
-                                            <td>14/10/2025</td>
-                                            <td><span class="text-success"><strong>✅ Vigente (14 días)</strong></span></td>
+                                        <tr class="overdue-book">
+                                            <td><strong>Diego Alejandro Ruiz</strong> <span class="badge bg-danger">RESTRINGIDO</span></td>
+                                            <td>La Casa de Bernarda Alba</td>
+                                            <td>10/08/2025</td>
+                                            <td>24/08/2025</td>
+                                            <td><span class="text-danger"><strong>❌ VENCIDO (37 días)</strong> - Multa: $570.00</span></td>
                                         </tr>
         
-                                        <tr>
-                                            <td><strong>Laura Martínez</strong> <span class="badge bg-success">HABILITADA</span></td>
-                                            <td>Ficciones (Jorge Luis Borges)</td>
-                                            <td>29/09/2025</td>
-                                            <td>14/10/2025</td>
-                                            <td><span class="text-success"><strong>✅ Vigente (14 días)</strong></span></td>
+                                        <tr class="overdue-book">
+                                            <td><strong>Ana García López</strong> <span class="badge bg-danger">RESTRINGIDA</span></td>
+                                            <td>El Quijote de la Mancha</td>
+                                            <td>15/07/2025</td>
+                                            <td>29/07/2025</td>
+                                            <td><span class="text-danger"><strong>❌ VENCIDO (62 días)</strong> - Multa: $920.00</span></td>
                                         </tr>
         
                                     </tbody>
@@ -333,17 +376,17 @@
                                 <div class="col-md-6">
                                     <h6>👥 Estado de Usuarios:</h6>
                                     <ul>
-                                        <li><strong>Total:</strong> 5 usuarios registrados</li>
-                                        <li><strong>Habilitados (P1=F, P2=F):</strong> 3 usuarios (60%)</li>
-                                        <li><strong>Restringidos (P1∨P2=V):</strong> 2 usuarios (40%)</li>
+                                        <li><strong>Total:</strong> 8 usuarios registrados</li>
+                                        <li><strong>Habilitados (P1=F, P2=F):</strong> 5 usuarios (62.5%)</li>
+                                        <li><strong>Restringidos (P1∨P2=V):</strong> 3 usuarios (37.5%)</li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
                                     <h6>📚 Estado de Préstamos:</h6>
                                     <ul>
-                                        <li><strong>Préstamos activos:</strong> 4 (todos vigentes)</li>
-                                        <li><strong>Libros vencidos:</strong> 0 (sistema funcionando)</li>
-                                        <li><strong>Multas pendientes:</strong> $950.00 (2 usuarios)</li>
+                                        <li><strong>Préstamos activos:</strong> 3 (vigentes)</li>
+                                        <li><strong>Libros vencidos:</strong> 3 (usuarios restringidos)</li>
+                                        <li><strong>Multas pendientes:</strong> $425.00 (3 usuarios)</li>
                                     </ul>
                                 </div>
                             </div>
