@@ -1,11 +1,15 @@
-# 📚 BiblioTech Córdoba - Sistema de Gestión Bibliotecaria
+# 🏆 BiblioTech Córdoba - ¡La Biblioteca del Futuro Ya Está Aquí!
 
 <div align="center">
 
-![BiblioTech Logo](https://img.shields.io/badge/BiblioTech-Córdoba-blue?style=for-the-badge&logo=book&logoColor=white)
+![BiblioTech Logo](https://img.shields.io/badge/BiblioTech-Córdoba-gold?style=for-the-badge&logo=crown&logoColor=white)
 
-**Sistema Inteligente de Gestión Bibliotecaria**  
-*Revoluciona tu biblioteca con tecnología de vanguardia y lógica matemática aplicada*
+## 🔥 ¡OFERTA LIMITADA! 🔥
+**🎯 Acceso VIP GRATUITO para los primeros 100,000 usuarios**  
+*⭐ Ya somos más de 50,000 - ¡Solo quedan 49,753 lugares!*
+
+### 🚀 ¿Cansado de sistemas bibliotecarios lentos y complicados?
+**¡Descubre BiblioTech Córdoba! El sistema más avanzado, rápido y fácil de usar.**
 
 [![Demo en Vivo](https://img.shields.io/badge/🚀-Demo_en_Vivo-success?style=for-the-badge)](https://EmiTeck.github.io/bibliotech-cordoba)
 [![Código Fuente](https://img.shields.io/badge/📂-Código_Fuente-lightgrey?style=for-the-badge&logo=github)](https://github.com/EmiTeck/bibliotech-cordoba)
