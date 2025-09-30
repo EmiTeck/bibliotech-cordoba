@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioTech Córdoba - Sistema de Gestión Bibliotecaria Inteligente</title>
+    
+    <!-- SEO y Social Media -->
+    <meta name="description" content="Sistema de gestión bibliotecaria con lógica proposicional matemática. 100% gratuito, digital y fácil de usar. Desarrollado por EmiTech.">
+    <meta name="keywords" content="biblioteca, gestión, libros, préstamos, lógica proposicional, matemática, Córdoba, gratis">
+    <meta name="author" content="EmiTech">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emiteck.github.io/bibliotech-cordoba/">
+    <meta property="og:title" content="BiblioTech Córdoba - La Biblioteca del Futuro">
+    <meta property="og:description" content="Sistema inteligente de gestión bibliotecaria con matemática aplicada. Gratis, fácil y potente.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=BiblioTech+Córdoba">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://emiteck.github.io/bibliotech-cordoba/">
+    <meta property="twitter:title" content="BiblioTech Córdoba - La Biblioteca del Futuro">
+    <meta property="twitter:description" content="Sistema inteligente de gestión bibliotecaria con matemática aplicada. Gratis, fácil y potente.">
+    <meta property="twitter:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=BiblioTech+Córdoba">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --gradient-secondary: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --font-primary: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --shadow-strong: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .crown-animation {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .cta-button {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
+            color: white;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .badge-limited {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0;
+            animation: pulse-glow 2s infinite;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(245, 158, 11, 0.5); }
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .feature-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Logic Section */
+        .logic-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .formula-container {
+            background: var(--dark-color);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .formula-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-accent);
+        }
+        
+        .truth-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin: 2rem 0;
+        }
+        
+        .truth-table table {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .truth-table th {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+            padding: 1.2rem;
+            border: none;
+        }
+        
+        .truth-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        .truth-table tbody tr:hover td {
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+        
+        .highlight {
+            background: rgba(16, 185, 129, 0.1) !important;
+            font-weight: 700 !important;
+            color: var(--success-color) !important;
+        }
+        
+        .danger {
+            background: rgba(239, 68, 68, 0.1) !important;
+            font-weight: 700 !important;
+            color: var(--danger-color) !important;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .tech-badge {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--dark-color);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Interactive Demo */
+        .demo-interactive {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            margin: 2rem 0;
+        }
+        
+        .demo-user {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .demo-user:hover {
+            transform: scale(1.02);
+        }
+        
+        .user-enabled {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .user-restricted {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin: 2rem 0;
+        }
+        
+        .comparison-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .check-icon {
+            color: var(--success-color);
+            font-size: 1.2rem;
+        }
+        
+        .x-icon {
+            color: var(--danger-color);
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-color);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .link-button {
+            background: var(--gradient-success);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-2px);
+            color: white;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .link-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .link-secondary:hover {
+            background: white;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-crown me-2"></i>BiblioTech Córdoba
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Características</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#logic">Lógica Matemática</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo Interactiva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tech">Tecnología</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center hero-content">
+                    <div class="crown-animation" data-aos="fade-down">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                        BiblioTech Córdoba
+                    </h1>
+                    
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+                        La Biblioteca del Futuro Ya Está Aquí
+                    </p>
+                    
+                    <div class="badge-limited" data-aos="zoom-in" data-aos-delay="600">
+                        🔥 ¡Sistema 100% GRATUITO! 🔥<br>
+                        <small>✨ Con Lógica Proposicional Matemática Aplicada</small>
+                    </div>
+                    
+                    <div class="mt-4" data-aos="fade-up" data-aos-delay="800">
+                        <a href="https://EmiTeck.github.io/bibliotech-cordoba" class="cta-button me-3" target="_blank">
+                            <i class="fas fa-rocket me-2"></i>Probar Sistema Ahora
+                        </a>
+                        <a href="#demo" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>Ver Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold" data-aos="fade-up">¿Qué es BiblioTech Córdoba?</h2>
+                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="200">
+                        Sistema completo de gestión bibliotecaria que combina tecnología moderna 
+                        con <strong>lógica proposicional matemática</strong> para crear una solución inteligente y automatizada.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-digital-tachograph"></i>
+                        </div>
+                        <h4 class="mb-3">100% Digital</h4>
+                        <p>Sin papeles ni procesos manuales. Todo automatizado y en la nube.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="mb-3">Acceso 24/7</h4>
+                        <p>Disponible desde cualquier dispositivo, en cualquier momento.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="mb-3">Lógica Inteligente</h4>
+                        <p>Decisiones automáticas basadas en matemática proposicional.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="mb-3">Búsqueda Avanzada</h4>
+                        <p>Encuentra libros por título, autor, género o ISBN al instante.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Control Automático</h4>
+                        <p>Sistema de restricciones inteligente que previene problemas.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="mb-3">Reportes en Tiempo Real</h4>
+                        <p>Estadísticas y métricas actualizadas automáticamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logic Section -->
+    <section id="logic" class="logic-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold" data-aos="fade-up">🧮 Innovación Matemática</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                        BiblioTech utiliza <strong>lógica proposicional</strong> para tomar decisiones automáticas
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="formula-container" data-aos="zoom-in">
+                        <h4 class="text-white mb-3">Fórmula del Sistema:</h4>
+                        <div class="fs-3 mb-3">
+                            <strong>PUEDE_PRESTAR = ¬(P1 ∨ P2)</strong>
+                        </div>
+                        <div class="fs-6">
+                            <p>P1 = Usuario tiene multas pendientes</p>
+                            <p>P2 = Usuario tiene libros vencidos sin devolver</p>
+                        </div>
+                    </div>
+
+                    <h4 class="text-center mb-4" data-aos="fade-up">Tabla de Verdad Interactiva:</h4>
+                    
+                    <div class="truth-table" data-aos="fade-up" data-aos-delay="200">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Multas (P1)</th>
+                                    <th>Vencidos (P2)</th>
+                                    <th>P1 ∨ P2</th>
+                                    <th>¬(P1 ∨ P2)</th>
+                                    <th>¿Puede Prestar?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="highlight" onclick="highlightRow(this)">
+                                    <td>Falso</td>
+                                    <td>Falso</td>
+                                    <td>Falso</td>
+                                    <td><strong>Verdadero</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> <strong>SÍ</strong></td>
+                                </tr>
+                                <tr class="danger" onclick="highlightRow(this)">
+                                    <td>Falso</td>
+                                    <td>Verdadero</td>
+                                    <td>Verdadero</td>
+                                    <td><strong>Falso</strong></td>
+                                    <td><i class="fas fa-times x-icon"></i> <strong>NO</strong></td>
+                                </tr>
+                                <tr class="danger" onclick="highlightRow(this)">
+                                    <td>Verdadero</td>
+                                    <td>Falso</td>
+                                    <td>Verdadero</td>
+                                    <td><strong>Falso</strong></td>
+                                    <td><i class="fas fa-times x-icon"></i> <strong>NO</strong></td>
+                                </tr>
+                                <tr class="danger" onclick="highlightRow(this)">
+                                    <td>Verdadero</td>
+                                    <td>Verdadero</td>
+                                    <td>Verdadero</td>
+                                    <td><strong>Falso</strong></td>
+                                    <td><i class="fas fa-times x-icon"></i> <strong>NO</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-success text-center mt-4" data-aos="fade-up" data-aos-delay="400">
+                        <h5><i class="fas fa-lightbulb"></i> Resultado:</h5>
+                        <p class="mb-0">Solo usuarios <strong>SIN multas Y SIN libros vencidos</strong> pueden realizar nuevos préstamos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold" data-aos="fade-up">🎮 Demo Interactiva</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                        Explora cómo funciona el sistema con datos reales de usuarios de Córdoba
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="demo-interactive">
+                        <h4 class="mb-4">
+                            <i class="fas fa-check-circle text-success"></i> Usuarios Habilitados (5)
+                        </h4>
+                        
+                        <div class="demo-user user-enabled" onclick="showUserInfo('carlos')">
+                            <div>
+                                <strong>Carlos Mendoza Silva</strong><br>
+                                <small>carlos.mendoza@email.com</small>
+                            </div>
+                            <div class="badge bg-success">✅ HABILITADO</div>
+                        </div>
+                        
+                        <div class="demo-user user-enabled" onclick="showUserInfo('maria')">
+                            <div>
+                                <strong>María Elena Rodríguez</strong><br>
+                                <small>maria.rodriguez@email.com</small>
+                            </div>
+                            <div class="badge bg-success">✅ HABILITADO</div>
+                        </div>
+                        
+                        <div class="demo-user user-enabled" onclick="showUserInfo('jose')">
+                            <div>
+                                <strong>José Luis Fernández</strong><br>
+                                <small>jose.fernandez@email.com</small>
+                            </div>
+                            <div class="badge bg-primary">1 préstamo activo</div>
+                        </div>
+                        
+                        <div class="demo-user user-enabled" onclick="showUserInfo('laura')">
+                            <div>
+                                <strong>Laura Patricia Gómez</strong><br>
+                                <small>laura.gomez@email.com</small>
+                            </div>
+                            <div class="badge bg-primary">1 préstamo activo</div>
+                        </div>
+                        
+                        <div class="demo-user user-enabled" onclick="showUserInfo('roberto')">
+                            <div>
+                                <strong>Roberto Carlos Díaz</strong><br>
+                                <small>roberto.diaz@email.com</small>
+                            </div>
+                            <div class="badge bg-primary">1 préstamo activo</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="demo-interactive">
+                        <h4 class="mb-4">
+                            <i class="fas fa-times-circle text-danger"></i> Usuarios Restringidos (3)
+                        </h4>
+                        
+                        <div class="demo-user user-restricted" onclick="showUserInfo('ana')">
+                            <div>
+                                <strong>Ana García López</strong><br>
+                                <small>ana.garcia@email.com</small>
+                            </div>
+                            <div>
+                                <div class="badge bg-danger">Multa: $75.00</div>
+                                <div class="badge bg-warning">62 días vencido</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-user user-restricted" onclick="showUserInfo('sofia')">
+                            <div>
+                                <strong>Sofía Isabel Morales</strong><br>
+                                <small>sofia.morales@email.com</small>
+                            </div>
+                            <div class="badge bg-warning">46 días vencido</div>
+                        </div>
+                        
+                        <div class="demo-user user-restricted" onclick="showUserInfo('diego')">
+                            <div>
+                                <strong>Diego Alejandro Ruiz</strong><br>
+                                <small>diego.ruiz@email.com</small>
+                            </div>
+                            <div>
+                                <div class="badge bg-danger">Multa: $200.00</div>
+                                <div class="badge bg-warning">37 días vencido</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Info Modal Area -->
+                    <div id="userInfo" class="demo-interactive mt-3" style="display: none;">
+                        <h5 id="userInfoTitle">Información del Usuario</h5>
+                        <div id="userInfoContent"></div>
+                        <div class="mt-3">
+                            <strong>Lógica Aplicada:</strong>
+                            <div id="logicFormula" class="font-monospace text-primary"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="tech" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold" data-aos="fade-up">💻 Tecnologías Utilizadas</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                        Stack tecnológico moderno y potente
+                    </p>
+                </div>
+            </div>
+
+            <div class="tech-stack" data-aos="fade-up" data-aos-delay="300">
+                <div class="tech-badge">
+                    <i class="fab fa-html5 text-danger"></i>
+                    HTML5
+                </div>
+                <div class="tech-badge">
+                    <i class="fab fa-css3-alt text-primary"></i>
+                    CSS3
+                </div>
+                <div class="tech-badge">
+                    <i class="fab fa-js-square text-warning"></i>
+                    JavaScript
+                </div>
+                <div class="tech-badge">
+                    <i class="fab fa-python text-info"></i>
+                    Python
+                </div>
+                <div class="tech-badge">
+                    <i class="fas fa-flask text-dark"></i>
+                    Flask
+                </div>
+                <div class="tech-badge">
+                    <i class="fas fa-database text-secondary"></i>
+                    SQLite
+                </div>
+                <div class="tech-badge">
+                    <i class="fab fa-bootstrap text-purple"></i>
+                    Bootstrap
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4" data-aos="fade-up">🆚 BiblioTech vs Sistemas Tradicionales</h3>
+                    
+                    <div class="comparison-table" data-aos="fade-up" data-aos-delay="200">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Aspecto</th>
+                                    <th>BiblioTech Córdoba</th>
+                                    <th>Sistemas Tradicionales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>💻 Tecnología</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> 100% Digital</td>
+                                    <td><i class="fas fa-times x-icon"></i> Papel + Digital</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>🧮 Inteligencia</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> Lógica Matemática</td>
+                                    <td><i class="fas fa-times x-icon"></i> Manual</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>💰 Costo</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> Gratuito</td>
+                                    <td><i class="fas fa-times x-icon"></i> Licencias Costosas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>⏰ Implementación</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> Inmediata</td>
+                                    <td><i class="fas fa-times x-icon"></i> Semanas/Meses</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>📱 Acceso</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> Multiplataforma</td>
+                                    <td><i class="fas fa-times x-icon"></i> Limitado</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>📊 Reportes</strong></td>
+                                    <td><i class="fas fa-check check-icon"></i> Automáticos</td>
+                                    <td><i class="fas fa-times x-icon"></i> Manuales</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold text-white" data-aos="fade-up">📞 Soporte y Contacto</h2>
+                    <p class="lead text-light" data-aos="fade-up" data-aos-delay="200">
+                        ¿Listo para revolucionar tu biblioteca?
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-card">
+                        <h4 class="mb-3"><i class="fas fa-rocket"></i> Acceso Directo</h4>
+                        <p class="mb-4">Prueba el sistema completo ahora mismo:</p>
+                        
+                        <a href="https://EmiTeck.github.io/bibliotech-cordoba" class="link-button" target="_blank">
+                            <i class="fas fa-globe me-2"></i>Demo en Vivo
+                        </a>
+                        
+                        <a href="https://onecompiler.com/mysql" class="link-button link-secondary" target="_blank">
+                            <i class="fas fa-database me-2"></i>Base de Datos MySQL
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-card">
+                        <h4 class="mb-3"><i class="fas fa-code"></i> Para Desarrolladores</h4>
+                        <p class="mb-4">Código fuente abierto y documentación completa:</p>
+                        
+                        <a href="https://github.com/EmiTeck/bibliotech-cordoba" class="link-button" target="_blank">
+                            <i class="fab fa-github me-2"></i>Repositorio GitHub
+                        </a>
+                        
+                        <a href="https://github.com/EmiTeck/bibliotech-cordoba/blob/main/README.md" class="link-button link-secondary" target="_blank">
+                            <i class="fas fa-book me-2"></i>Documentación
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="text-white mb-4">
+                    ¡BiblioTech Córdoba está 100% GRATIS y es completamente funcional!
+                </h3>
+                
+                <a href="https://EmiTeck.github.io/bibliotech-cordoba" class="cta-button me-3" target="_blank">
+                    <i class="fas fa-gamepad me-2"></i>Probar Sistema Completo
+                </a>
+                
+                <div class="mt-4">
+                    <p class="text-light">
+                        <strong>⭐ Si te gusta el proyecto, ¡dale una estrella en GitHub! ⭐</strong>
+                    </p>
+                    <a href="https://github.com/EmiTeck/bibliotech-cordoba/stargazers" target="_blank">
+                        <img src="https://img.shields.io/github/stars/EmiTeck/bibliotech-cordoba?style=social" alt="GitHub Stars" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-2">
+                        <em>Desarrollado con ❤️ y matemática aplicada por 
+                        <a href="https://github.com/EmiTeck" class="text-decoration-none text-primary" target="_blank">EmiTeck</a></em>
+                    </p>
+                    <p class="mb-0">
+                        <strong>© 2025 BiblioTech Córdoba - TEC Desarrollo Software</strong>
+                    </p>
+                    <div class="mt-3">
+                        <small class="text-muted">
+                            Sistema de Gestión Bibliotecaria con Lógica Proposicional Aplicada
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Interactive truth table
+        function highlightRow(row) {
+            // Remove previous highlights
+            document.querySelectorAll('.truth-table tbody tr').forEach(tr => {
+                tr.style.transform = 'scale(1)';
+                tr.style.boxShadow = 'none';
+            });
+            
+            // Highlight clicked row
+            row.style.transform = 'scale(1.02)';
+            row.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            
+            // Add pulse effect
+            row.style.animation = 'none';
+            setTimeout(() => {
+                row.style.animation = 'pulse 0.5s ease';
+            }, 10);
+        }
+
+        // Interactive user demo
+        const userDatabase = {
+            carlos: {
+                name: "Carlos Mendoza Silva",
+                email: "carlos.mendoza@email.com",
+                address: "San Martín 567, Nueva Córdoba",
+                status: "HABILITADO",
+                multas: false,
+                vencidos: false,
+                prestamos: 0,
+                logic: "P1=False, P2=False → ¬(False∨False) = True ✅"
+            },
+            maria: {
+                name: "María Elena Rodríguez",
+                email: "maria.rodriguez@email.com", 
+                address: "Independencia 890, Centro",
+                status: "HABILITADA",
+                multas: false,
+                vencidos: false,
+                prestamos: 0,
+                logic: "P1=False, P2=False → ¬(False∨False) = True ✅"
+            },
+            jose: {
+                name: "José Luis Fernández",
+                email: "jose.fernandez@email.com",
+                address: "Belgrano 432, Güemes",
+                status: "HABILITADO",
+                multas: false,
+                vencidos: false,
+                prestamos: 1,
+                libro: "1984 (vence hoy)",
+                logic: "P1=False, P2=False → ¬(False∨False) = True ✅"
+            },
+            laura: {
+                name: "Laura Patricia Gómez",
+                email: "laura.gomez@email.com",
+                address: "Rivadavia 765, Alberdi",
+                status: "HABILITADA",
+                multas: false,
+                vencidos: false,
+                prestamos: 1,
+                libro: "Matemáticas Discretas (4 días restantes)",
+                logic: "P1=False, P2=False → ¬(False∨False) = True ✅"
+            },
+            roberto: {
+                name: "Roberto Carlos Díaz",
+                email: "roberto.diaz@email.com",
+                address: "Duarte Quirós 321, Nueva Córdoba",
+                status: "HABILITADO",
+                multas: false,
+                vencidos: false,
+                prestamos: 1,
+                libro: "Historia Argentina Contemporánea (9 días restantes)",
+                logic: "P1=False, P2=False → ¬(False∨False) = True ✅"
+            },
+            ana: {
+                name: "Ana García López",
+                email: "ana.garcia@email.com",
+                address: "Av. Colón 1234, Córdoba",
+                status: "RESTRINGIDA",
+                multas: "$75.00",
+                vencidos: "El Quijote de la Mancha (62 días vencido)",
+                prestamos: 1,
+                logic: "P1=True, P2=True → ¬(True∨True) = False ❌"
+            },
+            sofia: {
+                name: "Sofía Isabel Morales",
+                email: "sofia.morales@email.com",
+                address: "Fructuoso Rivera 654, Cerro de las Rosas",
+                status: "RESTRINGIDA",
+                multas: false,
+                vencidos: "Física Universitaria (46 días vencido)",
+                prestamos: 1,
+                logic: "P1=False, P2=True → ¬(False∨True) = False ❌"
+            },
+            diego: {
+                name: "Diego Alejandro Ruiz",
+                email: "diego.ruiz@email.com",
+                address: "Rafael Núñez 987, Argüello",
+                status: "RESTRINGIDO",
+                multas: "$200.00",
+                vencidos: "La Casa de Bernarda Alba (37 días vencido)",
+                prestamos: 1,
+                logic: "P1=True, P2=True → ¬(True∨True) = False ❌"
+            }
+        };
+
+        function showUserInfo(userId) {
+            const user = userDatabase[userId];
+            const infoDiv = document.getElementById('userInfo');
+            const titleDiv = document.getElementById('userInfoTitle');
+            const contentDiv = document.getElementById('userInfoContent');
+            const logicDiv = document.getElementById('logicFormula');
+            
+            titleDiv.innerHTML = `<i class="fas fa-user"></i> ${user.name}`;
+            
+            let content = `
+                <p><strong>📧 Email:</strong> ${user.email}</p>
+                <p><strong>📍 Dirección:</strong> ${user.address}</p>
+                <p><strong>📊 Estado:</strong> <span class="badge ${user.status.includes('RESTRINGID') ? 'bg-danger' : 'bg-success'}">${user.status}</span></p>
+                <p><strong>📚 Préstamos Activos:</strong> ${user.prestamos}</p>
+            `;
+            
+            if (user.libro) {
+                content += `<p><strong>📖 Libro Actual:</strong> ${user.libro}</p>`;
+            }
+            
+            if (user.multas) {
+                content += `<p><strong>💰 Multas:</strong> <span class="text-danger">${user.multas}</span></p>`;
+            }
+            
+            if (user.vencidos) {
+                content += `<p><strong>⏰ Libros Vencidos:</strong> <span class="text-warning">${user.vencidos}</span></p>`;
+            }
+            
+            contentDiv.innerHTML = content;
+            logicDiv.innerHTML = user.logic;
+            
+            infoDiv.style.display = 'block';
+            infoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Add animation
+            infoDiv.style.animation = 'none';
+            setTimeout(() => {
+                infoDiv.style.animation = 'fadeInUp 0.5s ease';
+            }, 10);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation to external links
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon && !icon.classList.contains('loading')) {
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-spinner loading';
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1.02); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1.02); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Console easter egg
+        console.log(`
+🏆 BiblioTech Córdoba - Desarrollado con ❤️ por EmiTech
+🧮 Fórmula Lógica: PUEDE_PRESTAR = ¬(P1 ∨ P2)
+🌐 Demo: https://EmiTeck.github.io/bibliotech-cordoba
+📂 Código: https://github.com/EmiTeck/bibliotech-cordoba
+🎓 Proyecto académico de lógica proposicional aplicada
+        `);
+
+        // Page loaded notification
+        window.addEventListener('load', function() {
+            console.log('🚀 BiblioTech Córdoba folleto interactivo cargado exitosamente!');
+            
+            // Add subtle entrance animation to hero
+            setTimeout(() => {
+                document.querySelector('.hero-section').style.opacity = '1';
+            }, 100);
+        });
+
+        // Intersection Observer for navbar
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add hover effects to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
